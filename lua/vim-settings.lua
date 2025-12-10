@@ -53,6 +53,7 @@ vim.opt.swapfile = false
 
 --Misc--
 vim.opt.encoding = "UTF-8"
+vim.keymap.set("n", "<Leader>zm", ":ZenMode<CR>", { desc = "Activate/Disable ZenMode" })
 
 -- Move lines up/down
 vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", { desc = "Move line down" })
