@@ -19,6 +19,26 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("v", "<leader>y", '\"+y', {desc = "Copying to the clipboard"})
 
+
+-- Define your custom keymaps in a function
+local function set_insert_keys()
+    vim.keymap.set("i", "<C-j>", "<C-o>o", {desc = "Open new line below"})
+    vim.keymap.set("i", "<C-k>", "<C-o>O", {desc = "Open new line above"})
+end
+
+-- 1. Apply immediately on startup
+set_insert_keys()
+
+-- 2. Force re-apply whenever you enter a buffer or start typing
+-- This fights plugins that lazy-load on 'InsertEnter'
+vim.api.nvim_create_autocmd({"BufEnter", "InsertEnter"}, {
+    group = vim.api.nvim_create_augroup("ForceInsertKeys", { clear = true }),
+    callback = set_insert_keys,
+})
+
+
+
+
 vim.wo.number = true
 
 --Terminal
