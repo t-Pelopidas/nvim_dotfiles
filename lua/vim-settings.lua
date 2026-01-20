@@ -1,4 +1,3 @@
----@diagnostic disable: unused-function, unused-local
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
@@ -9,11 +8,12 @@ vim.cmd("set mouse=")
 
 vim.g.mapleader = " "
 
---Better writing/quitting--
+--Better writing/quitting/sourcing--
 vim.keymap.set("n", "<leader>w", ":write<CR>")
+vim.keymap.set("n", "<leader>,", ":q<CR>")
 vim.keymap.set("n", "<leader>al", ":wqa<CR>")
 vim.keymap.set("n","<leader>as",":qa!<CR>")
---vim.keymap.set("n", "<leader>", ":wqa<CR>")
+vim.keymap.set("n", "<leader>so", ":source<CR>")
 
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
@@ -84,17 +84,25 @@ vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { desc = "Move selection up" })
 --Delete--
 vim.keymap.set({ "n", "v" }, "<leader>da", '"_d<CR>', { desc = "Delete without yanking" })
 
-vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { desc = "Split window vertically" })
+
 -- Splitting & Resizing
-vim.keymap.set("n", "<leader>sh", ":split<CR>", { desc = "Split window horizontally" })
 vim.keymap.set("n", "<C-Up>", ":resize +4<CR>", { desc = "Increase window height" })
 vim.keymap.set("n", "<C-Down>", ":resize -4<CR>", { desc = "Decrease window height" })
-vim.keymap.set("n", "<C-Left>", ":vertical resize -4<CR>", { desc = "Decrease window width" })
-vim.keymap.set("n", "<C-Right>", ":vertical resize +4<CR>", { desc = "Increase window width" })
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width" })
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase window width" })
+
+--vim.keymap.set("n", "<leader>s", ":split<CR>", { desc = "Split window horizontally" })
+vim.keymap.set("n", "<leader>sv", ":vsplit<CR>", { desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>sl", "<C-w>l")
+vim.keymap.set("n", "<leader>sh", "<C-w>h")
+
 
 --Tabs--
 vim.keymap.set("n", "<leader>tn",":tabnew<CR>")
 vim.keymap.set("n", "<leader>tx",":tabclose<CR>")
+vim.keymap.set("n", "<leader>tl",":tabn<CR>")
+vim.keymap.set("n", "<leader>th",":tabp<CR>")
+
 
 
 --Autocommands--
