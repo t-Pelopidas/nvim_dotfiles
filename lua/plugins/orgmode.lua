@@ -5,7 +5,7 @@ return {
   config = function()
     -- 1. Setup the plugin
     require('orgmode').setup({
-      org_agenda_files = '~/org/**/*',
+      org_agenda_files = {'~/org/**/*'},
       org_default_notes_file = '~/org/refile.org',
       mappings = {
         global = {
@@ -24,12 +24,8 @@ return {
         local opts = { buffer = true, silent = true }
 
         -- === TASK MANAGEMENT ===
-        -- Force Deadline (<Leader>od)
-        map('n', '<Leader>od', function() org.action('org_mappings.org_deadline') end, opts)
         -- Force Schedule (<Leader>os)
         map('n', '<Leader>os', function() org.action('org_mappings.org_schedule') end, opts)
-        -- Force Todo Cycle (cit)
-        map('n', 'cit', function() org.action('org_mappings.org_todo') end, opts)
 
         -- === EDITING / HEADLINES ===
         -- Force Insert Link (<Leader>li)
