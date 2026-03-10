@@ -1,5 +1,1 @@
-This is my personal nvim config.
-
-I'm uploading it to github it have easy access to it from wherever
-
-hello
+My nvim configuration files.
